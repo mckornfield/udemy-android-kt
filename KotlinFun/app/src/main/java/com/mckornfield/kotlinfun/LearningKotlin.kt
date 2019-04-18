@@ -3,10 +3,13 @@ package com.mckornfield.kotlinfun
 fun main(args: Array<String>) {
     println("Hello Boys!")
 
-    val age = 12
+    val age: Int = 12
 
-    var candy = "Twix"
+    var candy: String = "Twix"
 
+    var thing : String
+
+    thing  = 123
     println(age)
     println(candy)
 
