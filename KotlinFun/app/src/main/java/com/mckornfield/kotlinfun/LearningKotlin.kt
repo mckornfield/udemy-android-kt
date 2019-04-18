@@ -12,9 +12,9 @@ fun main(args: Array<String>) {
 
     var candy: String = "Twix"
 
-    var thing : String
+    var thing: String
 
-    thing  = "abc"
+    thing = "abc"
     println(age)
     println(candy)
 
@@ -48,4 +48,32 @@ fun main(args: Array<String>) {
     weight -= 5
 
     println(weight)
+
+    var isTheLightIsOn: Boolean = false
+
+    if (isTheLightIsOn) {
+        println("Walk across the room")
+    } else {
+        println("Don't move a muscle")
+    }
+
+    val canRide = age > 11
+
+    println(canRide)
+
+    if (age == 17) {
+        println("Enjoy the ride")
+    } else {
+        println("Sorry son... ")
+    }
+
+    if (weight > 80) {
+        println("Slide on down!")
+    } else {
+        println("Try out the kiddie pool")
+    }
+
+    if (candy == "Snickers") {
+        println("Hey candy")
+    }
 }
