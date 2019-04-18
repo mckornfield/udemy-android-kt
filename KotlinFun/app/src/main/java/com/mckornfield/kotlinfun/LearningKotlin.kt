@@ -117,5 +117,63 @@ fun main(args: Array<String>) {
             print(x)
         }
     }
+    println("")
 
+    fun printHello() {
+        println("Hello!")
+    }
+
+    val printString = { a: String -> print(a) }
+    printString("abc")
+    fun addTwoNumbers(number1: Int, number2: Int): Int {
+        return number1 + number2
+    }
+
+    printHello()
+
+    val num = addTwoNumbers(addTwoNumbers(1, 5), 2)
+    println(num)
+
+    fun makeSentence(name: String, age: Int) {
+        println("My dog's name is $name and he is $age year(s) old")
+    }
+
+    makeSentence("Spot", 5)
+
+    class Dog() {
+        var name = ""
+        var age = 0
+        var furColor = ""
+
+        fun dogInfo() : String {
+           return "$name $age $furColor"
+        }
+    }
+
+    var myDog = Dog()
+    myDog.name = "bob"
+    myDog.age = 3
+    myDog.furColor = "white"
+
+    println(myDog.dogInfo())
+
+    var yourDog = Dog()
+    myDog.name = "not-bob"
+    myDog.age = 35
+    myDog.furColor = "grey"
+    println(yourDog.dogInfo())
+
+    class Kindle {
+        var version = 2
+        var color = "black"
+        var battery = "Full"
+
+        fun kindleInfo() : String {
+            return "My kindle is version $version, it is the color $color and its battery is $battery"
+        }
+    }
+
+    val myKindle = Kindle()
+
+    println(myKindle.kindleInfo())
 }
