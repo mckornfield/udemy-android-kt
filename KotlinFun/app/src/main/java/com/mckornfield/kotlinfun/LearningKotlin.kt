@@ -81,9 +81,15 @@ fun main(args: Array<String>) {
 
     topCandy[0] = "Black Thunder"
 
-    println(topCandy[0])
-    println(topCandy[1])
-    println(topCandy[2])
+    // Two similar for loops
+
+    for (candy in topCandy) {
+        println(candy)
+    }
+
+    for (x in 0..topCandy.size - 1) {
+        println(topCandy[x])
+    }
 
     var secondTopCandy = mutableListOf("Fun Dip", "Snickers", "100 Grand Bar")
 
@@ -105,5 +111,11 @@ fun main(args: Array<String>) {
 
     var luckyNumbers = listOf(1, 5, 3423, 5, "abc")
     println(luckyNumbers)
+
+    for (x in 1..1_000) {
+        if (x > 453) {
+            print(x)
+        }
+    }
 
 }
