@@ -76,4 +76,34 @@ fun main(args: Array<String>) {
     if (candy == "Snickers") {
         println("Hey candy")
     }
+
+    var topCandy = arrayOf("Fun Dip", "Snickers", "100 Grand Bar")
+
+    topCandy[0] = "Black Thunder"
+
+    println(topCandy[0])
+    println(topCandy[1])
+    println(topCandy[2])
+
+    var secondTopCandy = mutableListOf("Fun Dip", "Snickers", "100 Grand Bar")
+
+    secondTopCandy[0] = "Twix"
+
+    println(secondTopCandy)
+    secondTopCandy.add(0, "Hershey's")
+    println(secondTopCandy)
+
+
+    // Create a mutableList of three favorite movies
+
+    val topFavoriteMovies =
+        mutableListOf("The Matrix", "Good Will Hunting", "The Lord of the Rings: The Return of the King")
+
+    topFavoriteMovies.add("Clerks")
+
+    println(topFavoriteMovies)
+
+    var luckyNumbers = listOf(1, 5, 3423, 5, "abc")
+    println(luckyNumbers)
+
 }
