@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".EmojiDetailActivity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

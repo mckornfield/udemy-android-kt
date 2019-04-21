@@ -1,9 +1,12 @@
 package com.mckornfield.tipcalculator
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.mckornfield.emojidictionary2.EmojiDetailActivity
 import com.mckornfield.emojidictionary2.R
 import kotlinx.android.synthetic.main.recyclerview_item_row.view.*
 
@@ -23,17 +26,23 @@ class EmojiAdapter(val emojis: ArrayList<String>) : RecyclerView.Adapter<EmojiAd
 
     class TextHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
 
-        var view : View = v
+        init {
+//            v.setOnClickListener(this)
+        }
+
+        var view: View = v
 
         var emoji: String = ""
 
-        fun bindEmoji(emoji : String){
+        fun bindEmoji(emoji: String) {
             this.emoji = emoji
             view.itemTextView.text = emoji
         }
 
         override fun onClick(v: View?) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            val detailIntent = Intent(view.context, EmojiDetailActivity::class.java)
+            detailIntent.putExtra("emoji",emoji)
+            startActivity(view.context, detailIntent, null)
         }
 
     }
