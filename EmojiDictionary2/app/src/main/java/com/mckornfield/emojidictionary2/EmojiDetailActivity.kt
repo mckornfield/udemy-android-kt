@@ -2,6 +2,7 @@ package com.mckornfield.emojidictionary2
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_emoji_detail.*
 
 class EmojiDetailActivity : AppCompatActivity() {
@@ -16,5 +17,6 @@ class EmojiDetailActivity : AppCompatActivity() {
 
         val emoji = intent.extras.getString("emoji")
         emojiDetailTextView.text = emoji
+        emojiDetailTextView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.translate))
     }
 }

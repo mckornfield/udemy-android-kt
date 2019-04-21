@@ -3,13 +3,12 @@ package com.mckornfield.emojidictionary2
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import com.mckornfield.tipcalculator.EmojiAdapter
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity() {
 
-    lateinit var layoutManager: LinearLayoutManager
+    lateinit var layoutManager: GridLayoutManager
 
     lateinit var adapter: EmojiAdapter
 

@@ -27,7 +27,7 @@ class EmojiAdapter(val emojis: ArrayList<String>) : RecyclerView.Adapter<EmojiAd
     class TextHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
 
         init {
-//            v.setOnClickListener(this)
+            v.setOnClickListener(this)
         }
 
         var view: View = v
