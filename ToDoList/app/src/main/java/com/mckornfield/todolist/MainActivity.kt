@@ -1,5 +1,6 @@
 package com.mckornfield.todolist
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -21,11 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        layoutManager = LinearLayoutManager(this)
-        todoRecyclerView.layoutManager = layoutManager
-
-        adapter = TodoAdapter(todoStore)
-        todoRecyclerView.adapter = adapter
 
         fab.setOnClickListener { view ->
             val intent = Intent(view.context, CreateTodo::class.java)
@@ -45,7 +41,12 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_delete_all -> {
+                val prefs = getSharedPreferences(CreateTodo.PREF_STRING, Context.MODE_PRIVATE)
+                prefs.edit().putStringSet(CreateTodo.TODO_KEY, setOf()).apply()
+                updateRecycler()
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -55,10 +56,20 @@ class MainActivity : AppCompatActivity() {
         todoStore.todoList = todos.toMutableList()
     }
 
+    fun updateRecycler(){
+
+        updateTodos()
+
+        layoutManager = LinearLayoutManager(this)
+        todoRecyclerView.layoutManager = layoutManager
+
+        adapter = TodoAdapter(todoStore)
+        todoRecyclerView.adapter = adapter
+    }
+
     override fun onResume() {
         super.onResume()
         println("In on resume")
-        updateTodos()
-        adapter.notifyDataSetChanged()
+        updateRecycler()
     }
 }

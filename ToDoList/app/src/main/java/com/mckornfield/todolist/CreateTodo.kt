@@ -23,8 +23,8 @@ class CreateTodo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_todo)
-        var title = ""
-        saveButton.setOnClickListener { view ->
+        var title: String
+        saveButton.setOnClickListener {
             if (importantCheckbox.isChecked) {
                 title = "❗ " + titleEditText.text.toString()
             } else {
@@ -40,7 +40,6 @@ class CreateTodo : AppCompatActivity() {
         val todos = getTodos(this)
         todos.add(title)
         val prefs = getSharedPreferences(PREF_STRING, Context.MODE_PRIVATE)
-        println(todos)
         prefs.edit().putStringSet(TODO_KEY, todos).apply()
     }
 

@@ -1,5 +1,7 @@
 package com.mckornfield.todolist
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -17,32 +19,27 @@ class TodoAdapter(val todoStore: TodoStore) : RecyclerView.Adapter<TodoAdapter.T
 
     override fun onBindViewHolder(holder: TextHolder, index: Int) {
         val todo = todoStore.todoList.get(index)
-        val updateFunc = {
-            notifyDataSetChanged()
-            todoStore.todoList.removeAt(index)
-        }
-        holder.bindTodo(todo, index, updateFunc)
+        holder.bindTodo(todo, index)
     }
 
     class TextHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
         lateinit var todo: String
         var index: Int = 0
-        lateinit var notifier: () -> String
 
         init {
             v.setOnClickListener(this)
         }
 
-        fun bindTodo(todo: String, index: Int, notifier: () -> String) {
-            val formattedTodo = "- $todo"
-            this.todo = formattedTodo
+        fun bindTodo(todo: String, index: Int) {
+            this.todo = todo
             this.index = index
-            itemView.todoTextView.text = formattedTodo
-            this.notifier = notifier
+            itemView.todoTextView.text = todo
         }
 
         override fun onClick(v: View?) {
-            notifier()
+            val intent = Intent(v!!.context, CompleteTodo::class.java)
+            intent.putExtra("title", todo)
+            startActivity(v!!.context, intent, null)
         }
 
     }
